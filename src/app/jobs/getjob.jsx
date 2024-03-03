@@ -13,7 +13,7 @@ async function getJob(){
 }
 
 
-export default async function JobList () {
+export default async function JobListTest () {
 
   const jobsData = await getJob();
 

@@ -1,3 +1,4 @@
+import HomePage from "@/components/pages/HomePage";
 
 export default function Home() {
   return (
@@ -39,7 +40,7 @@ export default function Home() {
 //   </div>
 // </div>
 
-<div className="flex flex-col h-screen text-center">
+/* <div className="flex flex-col h-screen text-center">
   <div className="flex-1 flex justify-center items-center">
     <div className="w-1/4 p-4">
       First Row, First Column
@@ -99,7 +100,11 @@ export default function Home() {
       Fourth Row, Fourth Column
     </div>
   </div>
-</div>
+</div> */
 
+  <div>
+    <HomePage/>
+  </div>
+  
   );
 }
