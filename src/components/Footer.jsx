@@ -6,7 +6,7 @@ const Footer = () => {
 <footer className=" py-4">
   <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-4">
     <span className=" text-yellow-200 text-2xl font-bold mb-2 md:mb-0">CareerLinker</span>
-    <span className="text-center md:text-left mb-2 md:mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+    <span className="text-center md:text-left mb-2 md:mb-0">Stay updated with the latest notifications and details of upcoming exams.</span>
     <div className="text-center justify-center md:justify-end mt-2">
   <span className="inline-block mr-4">Socials</span>
   <span className="flex mt-2 mb-2 space-x-4">
@@ -23,7 +23,6 @@ const Footer = () => {
   </div>
 </footer>
 </>
-
   )
 }
 

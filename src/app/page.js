@@ -1,5 +1,10 @@
 import HomePage from "@/components/pages/HomePage";
 
+export const metadata = {
+  title: "Home",
+  description: "Explore our platform for the latest job notifications, admission updates, results, and more. Stay informed and take the next step in your career or education journey.",
+};
+
 export default function Home() {
   return (
 //     <div class="flex flex-col h-screen">

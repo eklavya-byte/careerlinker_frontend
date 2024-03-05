@@ -64,7 +64,7 @@ const handleSubmit = async (e) => {
         value={formData.id}
         onChange={handleChange}
         placeholder="ID"
-        className="border border-gray-300 p-2 rounded-md"
+        className="border border-gray-300 p-2 rounded-md bg-gray-200"
       />
       <input
         type="text"
@@ -72,11 +72,11 @@ const handleSubmit = async (e) => {
         value={formData.title}
         onChange={handleChange}
         placeholder="Title"
-        className="border border-gray-300 p-2 rounded-md"
+        className="border border-gray-300 p-2 rounded-md bg-gray-200"
       />
       <label
         htmlFor="description"
-        className="block text-gray-700 text-sm font-bold mb-2"
+        className="block text-gray-400 text-sm font-bold mb-"
       >
         Description:
       </label>
@@ -87,7 +87,7 @@ const handleSubmit = async (e) => {
         onChange={handleChange}
         rows="4"
         placeholder="Enter description"
-        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="shadow appearance-none bg-gray-200 border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
       />
       <input
         type="text"
@@ -95,7 +95,7 @@ const handleSubmit = async (e) => {
         value={formData.postedDate}
         onChange={handleChange}
         placeholder="Posted Date"
-        className="border border-gray-300 p-2 rounded-md"
+        className="border border-gray-300 p-2 rounded-md bg-gray-200"
       />
           <input
             type="text"
@@ -103,7 +103,7 @@ const handleSubmit = async (e) => {
             value={formData.applicationStartDate}
             onChange={handleChange}
             placeholder="Application Start Date"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -111,7 +111,7 @@ const handleSubmit = async (e) => {
             value={formData.applicationEndDate}
             onChange={handleChange}
             placeholder="Application End Date"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -119,7 +119,7 @@ const handleSubmit = async (e) => {
             value={formData.examDate}
             onChange={handleChange}
             placeholder="Exam Date"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -127,7 +127,7 @@ const handleSubmit = async (e) => {
             value={formData.admitCardDate}
             onChange={handleChange}
             placeholder="Admit Card Date"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -135,7 +135,7 @@ const handleSubmit = async (e) => {
             value={formData.applicationFee}
             onChange={handleChange}
             placeholder="Application Fee"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -143,7 +143,7 @@ const handleSubmit = async (e) => {
             value={formData.totalVacancies}
             onChange={handleChange}
             placeholder="Total Vacancies"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -151,7 +151,7 @@ const handleSubmit = async (e) => {
             value={formData.eligibilityCriteria}
             onChange={handleChange}
             placeholder="Eligibility Criteria"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
           <input
             type="text"
@@ -159,7 +159,7 @@ const handleSubmit = async (e) => {
             value={formData.resultDate}
             onChange={handleChange}
             placeholder="Result Date"
-            className="border border-gray-300 p-2 rounded-md"
+            className="border border-gray-300 p-2 rounded-md bg-gray-200"
           />
         </div>
         <div className="flex justify-center">
