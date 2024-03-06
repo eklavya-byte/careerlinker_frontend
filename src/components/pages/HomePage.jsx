@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -98,6 +99,7 @@ function HomePage() {
       {/* feedback and sujjestion section  */}
       <div className="flex justify-center items-center p-5 mt-2 text-blue-500 underline text-lg">
         <img className=" w-5 mx-4" src="/icons/google-forms.svg" alt="" />
+        <Image/>
         <a href="https://forms.gle/eg5Mk64RTcND8XM47" target="_blank">
         <i>Submit Inquiry/Feedback</i>
         </a>

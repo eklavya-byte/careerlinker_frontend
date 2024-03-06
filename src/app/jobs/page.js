@@ -1,38 +1,11 @@
 import Link from "next/link";
 import Job from "./Job";
+import { getJob } from "@/sevices/jobService";
 
 export const metadata = {
   title: "Latest Job notifications",
   description: "Stay informed with the latest job notifications. Explore job opportunities, stay ahead in your career, and find your next professional endeavor.",
 };
-
-
-// async function getJob() {
-//   const response = await fetch(`http://localhost:9090/job`,
-//     {
-//       next:{
-//         revalidate: 30,
-//       }
-//     })
-//   return response.json()
-// }
-
-async function getJob(searchParams) {
-  const { pageNumber = 0, pageSize = 15, sortDir = 'desc', sortBy = 'postedDate' } = searchParams || {};
-  let pageNum = 0;
-  if (pageNumber > 0 ){
-    pageNum = pageNumber-1;
-  }
-  let url = `http://localhost:9090/job?pageNumber=${pageNum}&pageSize=${pageSize}&sortDir=${sortDir}&sortBy=${sortBy}`;
-  // Fetch job data
-  const response = await fetch(url, {
-    next: {
-      revalidate: 30,
-    },
-  });
-  return response.json();
-}
-
 
 
 export default async function Page({searchParams}) {

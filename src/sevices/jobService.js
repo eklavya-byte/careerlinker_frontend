@@ -1,6 +1,10 @@
 import { httpAxios } from "@/helper/httphelper";
 
 
+export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+
+
+//Create job
 export async function addToJob(jobdata) {
   try {
     const result = await httpAxios.post("/job", jobdata);
@@ -10,63 +14,53 @@ export async function addToJob(jobdata) {
   }
 }
 
-
-
-
-// going to use this 
-export async function getAllJobs() {
-  const result = await httpAxios
-    .get(`/job`)
-    .then((response) => response.data);
-  return result;
-}
-
-
-
-
-
-export async function getJobById(userId) {
-    const result = await httpAxios
-      .get(`/jobs/${userId}`)
-      .then((response) => response.data);
-    return result;
-  }
-
-
-// export async function deleteTask(taskId) {
-//   const result = await httpAxios
-//     .delete(`/api/tasks/${taskId}`)
-//     .then((response) => response.data);
-//   return result;
+//second create job nextjs 
+// export async function PostJob() {
+//   const res = await fetch('https://data.mongodb-api.com/...', {
+//     method: 'POST',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'API-Key': process.env.DATA_API_KEY,
+//     },
+//     body: JSON.stringify({ time: new Date().toISOString() }),
+//   })
+//   const data = await res.json()
+//   return Response.json(data)
 // }
 
 
-//   const axios = require('axios');
 
-// // Make sure to use the correct URL with the port
-// const url = 'http://localhost:9090/job';
-
-// axios.get(url)
-//   .then(response => {
-//      console.log(response);
-//   })
-//   .catch(error => {
-//     console.response(error);
-//   });
-
+//get single job
+export async function fetchSingleJob(userId) {
+  try {
+    const res = await fetch(`${BASE_URL}job/${userId}`)
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    return error.message;
+  }
+}
 
 
-
-// Function to fetch all jobs
-// export async function getAllJobs() {
-//     try {
-//       // Make the GET request to the /job endpoint using the axios instance
-//       const response = await httpAxios.get(`/job`);
-//       // Return the data from the response
-//       return response.data;
-//     } catch (error) {
-//       // If an error occurs, throw it to be caught by the caller
-//       throw new Error('Error fetching jobs:', error);
-//     }
-//   }
+//get all jobs pagable
+export async function getJob(searchParams) {
+  const { pageNumber = 0, pageSize = 15, sortDir = 'desc', sortBy = 'postedDate' } = searchParams || {};
+  let pageNum = 0;
+  if (pageNumber > 0 ){
+    pageNum = pageNumber-1;
+  }
+  let url = `${BASE_URL}job?pageNumber=${pageNum}&pageSize=${pageSize}&sortDir=${sortDir}&sortBy=${sortBy}`;
   
+  // Fetch job data
+  try {
+    const response = await fetch(url, {
+      next: {
+        revalidate: 30,
+      },
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
+}
