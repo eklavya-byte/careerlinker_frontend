@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Job from "./Job";
-import { getJob } from "@/sevices/jobService";
+import { getJob, getListOfCategory } from "@/sevices/jobService";
+import CategoryDropdown from "@/components/pages/MyDropdown";
 
 export const metadata = {
   title: "Latest Job notifications",
@@ -14,7 +15,6 @@ export default async function Page({searchParams}) {
   const jobs = jobsData.content || [];
 
   const pageArray = Array.from({ length: jobsData.totalPages }, (_, i) => i + 1);
-  
 
   // console.log(pageArray);
 

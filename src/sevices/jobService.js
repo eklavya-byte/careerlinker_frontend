@@ -64,3 +64,39 @@ export async function getJob(searchParams) {
     return error.message;
   }
 }
+
+
+export async function getJobByCategory(searchParams) {
+  const { pageNumber = 0, pageSize = 15, sortDir = 'desc', sortBy = 'postedDate' ,region="not-found"} = searchParams || {};
+  let pageNum = 0;
+  if (pageNumber > 0 ){
+    pageNum = pageNumber-1;
+  }
+  let url = `${BASE_URL}job/getjob/${region}?pageNumber=${pageNum}&pageSize=${pageSize}&sortDir=${sortDir}&sortBy=${sortBy}`;
+  
+  // Fetch job data
+  try {
+    const response = await fetch(url, {
+      next: {
+        revalidate: 30,
+      },
+    });
+    return response.json();
+  } catch (error) {
+    console.log(error);
+    return error.message;
+  }
+}
+
+
+// get list of categories
+export async function getListOfCategory () {
+  try {
+    const res = await fetch(`${BASE_URL}category`)
+    const data = await res.json();
+    return data;
+  } catch (error) {
+    console.log(error.message)
+    return error.message;
+  }
+}
