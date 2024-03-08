@@ -1,7 +1,6 @@
-import { httpAxios } from "@/helper/httphelper";
+import { BASE_URL, httpAxios } from "@/helper/httphelper";
 
 
-export const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 
 //Create job
@@ -65,7 +64,7 @@ export async function getJob(searchParams) {
   }
 }
 
-
+//get job by category name 
 export async function getJobByCategory(searchParams) {
   const { pageNumber = 0, pageSize = 15, sortDir = 'desc', sortBy = 'postedDate' ,region="not-found"} = searchParams || {};
   let pageNum = 0;

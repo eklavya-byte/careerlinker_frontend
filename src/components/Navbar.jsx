@@ -16,7 +16,7 @@ const Navbar = () => {
           <section className="mr-auto pl-6 text-yellow-200 text-2xl font-bold">CareerLinker</section>
           <section className="md:block mx-3"><Link href="/">Home</Link></section>
           <section className="hidden md:block mx-3"> <Link href="/jobs">Latest job</Link></section>
-          <section className="hidden md:block mx-3"> <Link href="/jobs">Admit-card</Link></section>
+          <section className="hidden md:block mx-3"> <Link href="/admitcard">Admit-card</Link></section>
           <section className="hidden md:block mx-3"> <Link href="/jobs">Results</Link></section>
           <section className="hidden md:block mx-3"> <Link href="/admin">Contact us</Link></section>
           {!isLoggedIn ? <section className="md:ml-auto pr-2">sign up</section> : <section className="md:ml-auto pr-2  mx-2">login</section>}
