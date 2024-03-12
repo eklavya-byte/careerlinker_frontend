@@ -1,39 +1,41 @@
-import { createAdmitCard, deleteAdmitCard, getAdmitCard, getAllOfAdmitCard } from '@/sevices/admitcardService'
+import { getAllOfAdmitCard } from '@/sevices/admitcardService';
+import AdmitCard from './Admit';
+import Link from 'next/link';
 
 
-export default async function page(){
-  // const admitObject = {
-  //   "nameOfPost": "Database Administrator",
-  //   "postDate": "2024-03-08",
-  //   "shortInformation": "Information about Database Administrator position.",
-  //   "applicationBegin": "2024-03-01",
-  //   "lastDateApplyOnline": "2024-03-20",
-  //   "correctionLastDate": "2024-03-25",
-  //   "preExamDate": "2024-04-15",
-  //   "applicationFee": "$60",
-  //   "totalPost": 25,
-  //   "postName": "Administrator",
-  //   "eligibilityDetails": "Proficiency in SQL and database management."
-  // }
-  
-  // const result = await createAdmitCard(admitObject);
-  // if(result === 201){
-  //   return "Admit card created successfully";
-  // } else(
-  //   "Admit card not created successfully"
-  // )
+export const metadata = {
+  title: "Recent Admit Cards",
+  description: "Stay updated with the latest admit cards. Access your exam hall tickets easily and stay organized for your upcoming exams.",
+};
 
-  // const result = await getAdmitCard(1);
-  // console.log(result);
+export default async function AdmitCardPage({ searchParams }) {
+  const admitCardData = await getAllOfAdmitCard(searchParams);
+  const admitCardList = admitCardData.content || [];
 
-  // const result = await deleteAdmitCard(1);
-  // console.log(result);
+  const pageArray = Array.from({ length: admitCardData.totalPages }, (_, i) => i + 1);
 
-    //  const admitCard = await getAllOfAdmitCard();
-    //  console.log(admitCard);
 
   return (
-    <div>Page</div>
-  )
-}
+    <>
+      <div className="container mx-auto mt-8 px-10">
+        <h1 className="text-2xl mb-4 text-gray-200 font-bold text-center pb-2">Recent Admit Cards</h1>
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {admitCardList.map((admitCard) => (
+            <div key={admitCard.id} className=" p-4 rounded-lg shadow-md">
+              <AdmitCard admitCardData={admitCard}/>
+            </div>
+          ))}
+        </div>
+      </div>
 
+      <div className="flex items-center justify-center py-5 my-5 ">
+  <p className="text-center text-gray-300 mx-2">Page 
+  </p>
+  { pageArray.length > 0 && pageArray.map((page) =>
+    <p key={page}>  <Link href={{ pathname: '/admitcard', query: { pageNumber: page } }}><span className={admitCardData.pageNumber === page-1 ? "text-gray-200 mx-2" : "text-gray-400 mx-2"} >{page}</span></Link>
+    </p>
+  )}
+</div>
+    </>
+  );
+}

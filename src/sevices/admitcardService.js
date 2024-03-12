@@ -64,7 +64,7 @@ export async function deleteAdmitCard(id) {
 
 //get all of admit card with pageable response 
 export async function getAllOfAdmitCard(searchParams) {
-    const { pageNumber = 0, pageSize = 15, sortDir = 'desc', sortBy = 'id' } = searchParams || {};
+    const { pageNumber = 0, pageSize = 16, sortDir = 'desc', sortBy = 'id' } = searchParams || {};
     let pageNum = 0;
     if (pageNumber > 0) {
         pageNum = pageNumber - 1;

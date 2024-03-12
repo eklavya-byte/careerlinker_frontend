@@ -1,4 +1,5 @@
-import { BASE_URL, fetchSingleJob} from "@/sevices/jobService";
+import { BASE_URL } from "@/helper/httphelper";
+import { fetchSingleJob} from "@/sevices/jobService";
 
 export async function generateStaticParams() {
   try {

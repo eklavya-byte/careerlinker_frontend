@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Job from "./Job";
-import { getJob, getListOfCategory } from "@/sevices/jobService";
-import CategoryDropdown from "@/components/pages/MyDropdown";
+import { getJob} from "@/sevices/jobService";
 
 export const metadata = {
   title: "Latest Job notifications",
