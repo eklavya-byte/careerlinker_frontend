@@ -1,4 +1,5 @@
 import { getAllResults } from "@/sevices/resultService"
+import Results from "./Results";
 
 
 export default async function page({searchParams}){
@@ -6,11 +7,9 @@ export default async function page({searchParams}){
     const resultsData = await getAllResults(searchParams);
     const results = resultsData.content || [];
 
-    console.log(results);
-
     return(
         <div>
-            <h1>This one is result page ! </h1>
+            <Results results={results}/>
         </div>
     )
 }

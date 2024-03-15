@@ -6,7 +6,7 @@ import { BASE_URL } from "@/helper/httphelper";
 // create a result 
 //get all results
 export async function getAllResults(searchParams) {
-    const { pageNumber = 0, pageSize = 25, sortDir = 'desc', sortBy = 'id' } = searchParams || {};
+    const { pageNumber = 0, pageSize = 26, sortDir = 'desc', sortBy = 'postDate' } = searchParams || {};
     let pageNum = 0;
     if (pageNumber > 0) {
         pageNum = pageNumber - 1;

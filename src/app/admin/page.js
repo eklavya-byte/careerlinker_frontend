@@ -12,13 +12,13 @@ export default async function AdminPage(){
     <div className="flex flex-col pt-11 text-center">
   <div className="flex-1 flex  items-center">
     <div className="w-1/4 p-4">
-      <Link href="/admin/createjob">Create Latest Job</Link>
+      <Link href="/admin/createjob">Create Job</Link>
     </div>
     <div className="w-1/4 p-4">
-    <Link href="/admin/createjob">Create Latest Job</Link>
+    <Link href="/admin/createjob">Update Job</Link>
     </div>
     <div className="w-1/4 p-4">
-    <Link href="/admin/createjob">Create Latest Job</Link>
+    <Link href="/admin/createjob">Delete Job</Link>
     </div>
     <div className="w-1/4 p-4">
     <Link href="/admin/createjob">Create Latest Job</Link>
@@ -27,8 +27,6 @@ export default async function AdminPage(){
 
   <div>
   </div>
-
-  <FilterJob searchParams={{region:"Delhi"}}/>
 
 </div>
 
